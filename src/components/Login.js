@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Header from './Header';
 import { ValidateData } from '../utils/ValidateData';
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from "../utils/firebase"
 
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true);
@@ -17,6 +19,40 @@ const Login = () => {
   const handleData = () => {
     const ValidData = ValidateData(email.current.value, pass.current.value);
     seterrorMessage(ValidData);
+    if(ValidData) return;
+
+    if(!isSignIn){
+      // Sign up
+
+      createUserWithEmailAndPassword(auth,email.current.value, pass.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorMessage(errorCode+" - "+errorMessage)
+    // ..
+  });
+
+    }else{
+      signInWithEmailAndPassword(auth, email.current.value, pass.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorMessage(errorCode+" - "+errorMessage)
+  });
+
+    }
   }
 
   const toggleShowPassword = () => {
