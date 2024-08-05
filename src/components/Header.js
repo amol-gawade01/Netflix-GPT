@@ -22,7 +22,7 @@ const Header = () => {
         navigate('/');
       }
     });
-  }, [dispatch, navigate]);
+  }, []);
 
   const handleSignOut = () => {
     signOut(auth)

@@ -5,6 +5,7 @@ import {auth} from "../utils/firebase"
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import Header from './Header';
+import { BACKGROUND_URL } from '../utils/constant';
 
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true);
@@ -78,7 +79,7 @@ const Login = () => {
     <div>
       <Header/>
       <div className='z-0 absolute'>
-        <img className='brightness-50 ' src={'https://assets.nflxext.com/ffe/siteui/vlv3/655a9668-b002-4262-8afb-cf71e45d1956/5ff265b6-3037-44b2-b071-e81750b21783/IN-en-20240715-POP_SIGNUP_TWO_WEEKS-perspective_WEB_c6d6616f-4478-4ac2-bdac-f54b444771dd_medium.jpg'} alt='net-bg'></img>
+        <img className='brightness-50 ' src={BACKGROUND_URL} alt='net-bg'></img>
       </div>
       <form onSubmit={(e) => {e.preventDefault()}} className='bg-black pb-36 pt-8 px-20 z-20 flex flex-col absolute my-40 mx-[30rem] bg-opacity-75 rounded-lg'>
         <h1 className='text-white font-bold text-2xl my-4'> {isSignIn ? "Sign In":"Sign Up"}</h1>
