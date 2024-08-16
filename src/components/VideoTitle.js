@@ -13,15 +13,15 @@ const VideoTitle = ({ title, overview }) => {
 
   return (
     <div 
-      className='absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black bg-opacity-0 z-30'
+      className='absolute px-[30px] w-full my-[300px] pb-[250px]  mb-5  z-30 bg-gradient-to-t from-black '
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <h1 className='text-white font-bold text-4xl mb-2'>
         {title}
       </h1>
-      <div className={`transition-all duration-300 ${isHovered ? 'max-h-72' : 'max-h-0'} overflow-hidden`}>
-        <p className='text-lg text-white mb-2'>
+      <div className={`transition-all duration-300 ${isHovered ? 'max-h-64' : 'max-h-0'} overflow-hidden`}>
+        <p className='text-lg text-white mb-2 '>
           {overview}
         </p>
       </div>
