@@ -10,3 +10,12 @@ export const API_OPTIONS =  {
 
 
 export const MOVIE_CARDS = "https://image.tmdb.org/t/p/w780/";
+
+export const SUPPORTED_LANG = [
+  {identifier:"en",name:"English"},
+  {identifier:"hindi",name:"Hindi"},
+  {identifier:"spanish",name:"Spanish"},
+  {identifier:"tamil",name:"Tamil"},
+  {identifier:"telugu",name:"Telugu"},
+  {identifier:"sanskrit",name:"Sanskrit"},
+]

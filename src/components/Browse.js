@@ -6,21 +6,26 @@ import SecondaryComponent from "./SecondaryComponent";
 import usePopular from "../Hooks/usePopular";
 // import useTopRated from "../Hooks/useTopRated";
 import useUpcoming from "../Hooks/useUpcoming";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
 
-
+const gptFlag = useSelector((store) => store.gpt.showGptSearch)
  useNowPlayingMovies();
  usePopular();
 //  useTopRated();
  useUpcoming();
   
   return (
-    <div className="bg-black">
+    <div>
       <Header/>
-      <MainComponenet/>
-
-   <SecondaryComponent/>
+    { gptFlag ?   <GptSearch/>:
+    <>
+     <MainComponenet/>
+     <SecondaryComponent/>
+     </>
+   }
     </div>
   );
 };
